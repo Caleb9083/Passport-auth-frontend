@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -26,8 +27,8 @@ const NavbarComponent = () => {
                                 </Navbar.Text>
                             ) : (
                                 <>
-                                    <Button variant="outline-primary">Sign In</Button>
-                                    <Button style={{marginLeft: "1rem"}} variant="outline-secondary">Sign Up</Button></>
+                                    <Link to={"/signin-auth"}><Button variant="outline-primary">Sign In</Button></Link>
+                                    <Link to={"/signup-auth"}><Button style={{ marginLeft: "1rem" }} variant="outline-secondary">Sign Up</Button></Link></>
                             )
                         }
                     </Navbar.Collapse>
