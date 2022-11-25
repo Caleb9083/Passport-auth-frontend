@@ -1,48 +1,41 @@
 import React from 'react'
+import { useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
-import NavbarOffcanvas from 'react-bootstrap/esm/NavbarOffcanvas';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 
 const NavbarComponent = () => {
-  return (
-    <div>
-        <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+    const [isLogin, setIsLogin] = useState(false)
+    return (
+        <div>
+            <Navbar bg="light" variant="light">
+                <Container>
+                    <Navbar.Brand href="#home">Toptech</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    </Nav>
+                    <Navbar.Collapse className="justify-content-end">
+                        {
+                            isLogin ? (
+                                <Navbar.Text>
+                                    Signed in as: <a href="#login">Mark Otto</a>
+                                </Navbar.Text>
+                            ) : (
+                                <>
+                                    <Button variant="outline-primary">Sign In</Button>
+                                    <Button style={{marginLeft: "1rem"}} variant="outline-secondary">Sign Up</Button></>
+                            )
+                        }
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
 
-      <br />
-      <Navbar bg="light" variant="light">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default NavbarComponent;
